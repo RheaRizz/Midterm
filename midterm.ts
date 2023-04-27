@@ -477,10 +477,11 @@ class Structural_Design extends Main_Features implements Designer {
             } 
 
     }  
+}
     
 
 
-    Export_Property() {
+    Export_Property(): any {
 
                 
         if (this.user === 'agree') {
@@ -493,10 +494,10 @@ class Structural_Design extends Main_Features implements Designer {
 
         }
 
-    }   
+    }  
 
 
-    Industry_Partners()  {
+    Industry_Partners() : any {
 
         console.log(`These are the list of industries for this ${this.brandName} `)
         let fashionIndustries = ["List of partners", "List of partners", "List of partners"]
@@ -506,7 +507,7 @@ class Structural_Design extends Main_Features implements Designer {
         }
     }
 
-    Unique_Features()   {
+    Unique_Features() : any  {
 
         console.log(`This ${this.brandName} has list of unique features and its own ${this.function_} `)
         let uniquefeatures = ["List of feature", "List of feature", "List of feature"]
@@ -518,7 +519,7 @@ class Structural_Design extends Main_Features implements Designer {
 
 
 
-    External_extensions() {
+    External_extensions() : any {
 
         console.log(`These are the list of external extensions eligible for ${this.brandName}`)
         let fashiondesignExtensions = ["list of extensions eligible on the said class"]
@@ -529,7 +530,7 @@ class Structural_Design extends Main_Features implements Designer {
     }
 
 
-    Business_partners() {
+    Business_partners() : any {
         
 	    if (this.user === "business proposal"){
             console.log(`${this.user} selects partnership in business`)
@@ -544,7 +545,8 @@ class Structural_Design extends Main_Features implements Designer {
             console.log(`${this.user} denied to have partnership!`)
         }
     
-    } Collaboration() {
+    } 
+    Collaboration() : any {
 
         console.log(`${this.user} has a free will to collab with a professional to strengthen ${this.quality} of ${this.product}`)
 
@@ -554,7 +556,7 @@ class Structural_Design extends Main_Features implements Designer {
             console.log(`Collaboration rejected!`)
         }
     }    
-    Ecommerce_space(){
+    Ecommerce_space() : any{
         
         if (this.user === "agree"){
             console.log(`Display desired items and ${this.cost} items : 
@@ -564,7 +566,7 @@ class Structural_Design extends Main_Features implements Designer {
         }
     }  
 
-    Social_media()   {
+    Social_media() : any {
 
         if (this.user === "agree"){
             console.log(`${this.user} selects social media in marketing the designs`)
@@ -572,11 +574,9 @@ class Structural_Design extends Main_Features implements Designer {
             console.log(`${this.user} in ${this.brandName}: Declined Project Design Marketing!`)
         }
     }     
-    legal_matters() {
+    legal_matters() : any {
         console.log(`${this.user} verified partnerships`)
     }
-}
-
 }
 
 
@@ -631,7 +631,18 @@ fashion.legal_matters();
 
 
 const structure = new Structural_Design
-('Designer', 'Structural Design', 'Lois', 'Rhea', 'Gucci', 'design structures', 12345, 1, 'seat', 'custom', 'Gavana bldg', 'Seravim', 'KATANA', 'siees', 'table', 'tricycle')
+('Structure Design', 
+'Unique Features', 
+'Lois', 
+'Rhea', 
+'Retailer 2',
+'Structure Designs', 
+12345, 1, 
+'Products: vehicles, etc',
+'Unique Qualities',
+'seat', 'custom', 'Gavana bldg', 'Seravim', 'agree' , 
+'professional', 
+)
 
 
 console.log("\n----------------------------------------------------------")
