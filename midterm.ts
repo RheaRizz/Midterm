@@ -10,21 +10,19 @@
 //It provides a wide-range of designing tools that is catered to the global digital marketplace. 
 
 
-
-
 interface Designer {
 
-    Designing_Tools() : string//displays the list of tools designated for that particular feature
-    Export_Property() : string//Tangible or Intangible 
-    Industry_Partners() : string//list o f industries
-    Unique_Features() : string//unique feature of the particular child class. implement encapsulation
-    External_extensions() : string//eligible external extensions (github, visual studio code, autocad, canva)
-    Business_partners() : string  //sellers or business interaction with the employers aka users.
-    Collaboration() : string//is collaboration between the professionals, employers and users to a working project.
-    Ecommerce_space() : string//buy and sell space.
-    Social_media() : string//option to post or display it in the users guild. 
-    legal_matters() : string//if the seller and the professionals have successfully signed in their identity as a pro they are now permitted to be in the one: boolean
-                        //if the users have taken the designated parameters to succesfully export her product. this will take legal action on teh said guild.
+    Designing_Tools() : string       //displays the list of tools designated for that particular feature
+    Export_Property() : string       //Tangible or Intangible 
+    Industry_Partners() : string    //list of industries
+    Unique_Features() : string      //unique feature of the particular child class. implement encapsulation
+    External_extensions() : string  //eligible external extensions (github, visual studio code, autocad, canva)
+    Business_partners() : string    //sellers or business interaction with the employers aka users.
+    Collaboration() : string        //is collaboration between the professionals, employers and users to a working project.
+    Ecommerce_space() : string      //buy and sell space.
+    Social_media() : string         //option to post or display it in the users guild. 
+    legal_matters() : string        //if the seller and the professionals have successfully signed in their identity as a pro they are now permitted to be in the one: boolean
+                                    //if the users have taken the designated parameters to succesfully export her product. this will take legal action on teh said guild.
 }
 
 class Main_Features implements Designer {
@@ -62,58 +60,83 @@ class Main_Features implements Designer {
 
 
     Designing_Tools()  {
-        return (`This ${this.brandName} has variety of tools designated for a specific item  `)
+
+        return (`This ${this.brandName} has variety of tools designated for a specific item  `);
+
     }  
 
 
     Export_Property() {
-        return (`${this.user} selects to export ${this.product} `)
+
+        return (`${this.user} selects to export ${this.product} `);
 
     }  
     
     
     Industry_Partners()  {
-        return (`These are the list of industries for this ${this.brandName} `)
+
+        return (`These are the list of industries for this ${this.brandName} `);
+
     }
 
 
     Unique_Features()   {
-        return (`This ${this.brandName} has list of unique features and its own ${this.function_} `)
+
+        return (`This ${this.brandName} has list of unique features and its own ${this.function_} `);
+
     }  
 
 
     External_extensions() {
-        return (`These are the list of external extensions eligible for ${this.brandName}`)
+
+        return (`These are the list of external extensions eligible for ${this.brandName}`);
+
     }
 
 
     Business_partners() {
-        return (`${this.user} selects own partnership`)
+
+        return (`${this.user} selects own partnership`);
+
     } 
 
 
     Collaboration()  {
-        return (`${this.user} has a free will to collab with a professional to strengthen ${this.quality} of ${this.product}`)
+
+        return (`${this.user} has a free will to collab with a professional to strengthen ${this.quality} of ${this.product}`);
+
     }    
 
 
     Ecommerce_space()  {
+
         return (`${this.user} can display desired and ${this.cost} items : 
+
         choice to buy/sell with a specific number ${this.quantity} of quantities   .`)
+
     }  
 
 
     Social_media()   {
-        return(`${this.user} selects way to market ${this.product} `)
+
+        return(`${this.user} selects way to market ${this.product} `);
+
     }     
 
 
     legal_matters() {
-        return (`${this.user} verified partnerships`)
+
+        return (`${this.user} verified partnerships`);
+
     }
 
 
 }
+
+
+//--------------------------------------------------------------------------------------------------
+
+
 
 class Fashion_Design extends Main_Features implements Designer { 
 
@@ -140,91 +163,116 @@ class Fashion_Design extends Main_Features implements Designer {
 
 
     getClothing(): string {
+
         return this.clothing
+
     }
 
 
     setClothing(clothing: string) {
+
         this.clothing = clothing
+
     }
 
 
     getBags(): string {
+
         return this.bags
+
     }
 
 
     setBags(bags: string) {
+
         this.bags = bags
+
     }
 
 
     getAccessories(): string {
+
         return this.accessories
+
     }
 
 
     setAccessories(accessories: string) {
+
         this.accessories = accessories
+
     }
 
 
     getShoes(): string {
+
         return this.shoes
+
     }
 
 
     setShoes(shoes: string) {
+
         this.shoes = shoes
+
     }
+
+
 
 
     Designing_Tools() : any {
 
-        console.log(`These ${this.brandName} has variety of tools designated for a specific item  `)
+        //console.log(`These ${this.brandName} has variety of tools designated for a specific item  `)
 
         let arrayOfObjects = [this.shoes, this.bags, this.accessories, this.clothing]
         
-        for(let i=0 ; i < arrayOfObjects.length; i++) {
+        for(let i = 0 ; i < arrayOfObjects.length; i++) {
             console.log(arrayOfObjects[i])
         
             if (arrayOfObjects[i] == this.shoes){
 
-                console.log("Foot shape, size, Materials and construction, Sole, Upper design, Color and Texture, Branding and logo design")
+                console.log("Foot shape, Size, Materials, Sole, Upper design, Color and Texture, Branding and Logo Design");
 
             }else if (arrayOfObjects[i] == this.bags){
 
-                console.log("Functionality, Size and shape, Materials and construction, Compartments and pockets, Strap and handle design, Color and texture, Branding and logo design ")
+                console.log("Functionality, Size and shape, Materials and construction, Compartments and pockets, Strap and handle design, Color and texture, Branding and logo design ");
 
             }else if (arrayOfObjects[i] == this.accessories){
 
-                console.log("Functionality, Size and shape, Materials and construction, Closure and fastening, Color and texture")
+                console.log("Functionality, Size and shape, Materials and construction, Closure and fastening, Color and texture");
 
             }else if (arrayOfObjects[i] == this.clothing)
 
-                console.log("Silhouette, Fabrics, Colors and prints, Embellishments, Details, Fit")
+                console.log("Silhouette, Fabrics, Colors and prints, Embellishments, Details, Fit");
                 
         }
     }  
 
 
+
     Export_Property() : any {
 
         if (this.user === "agree") {
-            console.log(`${this.user} selects to export ${this.product} `)
+
+            console.log(`${this.user} selects to export ${this.product} `);
+
         } else {
-		    console.log(`${this.user} disagree to export ${this.product}`)
+
+		    console.log(`${this.user} disagree to export ${this.product}`);
+
         }
 
     }   
 
 
+
     Industry_Partners() : any  {
 
-        console.log(`These are the list of industries for this ${this.brandName} `)
-        let fashionIndustries = ["List of partners", "List of partners", "List of partners"]
+        //console.log(`These are the list of industries for this ${this.brandName} `)
+        let fashionIndustries = ['Hashikon', 'Zalora', 'Prada', 'Shein', 'Lovelace'];
 	    
-        for(let i=0 ; i < fashionIndustries.length; i++) {
+        for(let i = 0 ; i < fashionIndustries.length; i++) {
+
             console.log(fashionIndustries[i])
 
         }
@@ -234,9 +282,9 @@ class Fashion_Design extends Main_Features implements Designer {
 
     Unique_Features() : any  {
 
-        console.log(`This ${this.brandName} has list of unique features and its own ${this.function_} `)
+        //console.log(`This ${this.brandName} has list of unique features and its own ${this.function_} `)
 
-        let uniquefeatures = ["List of feature", "List of feature", "List of feature"]
+        let uniquefeatures = ['', '', '', '', '']
 
         for(let i=0 ; i < uniquefeatures.length; i++) {
 
@@ -249,11 +297,11 @@ class Fashion_Design extends Main_Features implements Designer {
 
     External_extensions() : any {
 
-        console.log(`These are the list of external extensions eligible for ${this.brandName}`)
+        //console.log(`These are the list of external extensions eligible for ${this.brandName}`)
 
-        let fashiondesignExtensions = ["list of extensions eligible on the said class"]
+        let fashiondesignExtensions = ['Clo3D', 'PatternSmith', 'Telestia Creator', 'Canva', 'AutoDesk'];
         
-        for(let i=0 ; i < fashiondesignExtensions.length; i++) {
+        for(let i = 0 ; i < fashiondesignExtensions.length; i++) {
 
             console.log(fashiondesignExtensions[i])
 
@@ -263,18 +311,24 @@ class Fashion_Design extends Main_Features implements Designer {
 
 
     Business_partners() : any {
+
+        let agree: boolean = true;
         
-	    if (this.user === "business proposal"){
-            console.log(`${this.user} selects partnership in business`)
+	    if (this.user === 'agree') {
+
+            console.log(`${this.user} selects partnership in business`);
            
         } else if (this.user === "professional proposal" ){
-            console.log(`${this.user} selects partnership with a professional`)
+            
+            console.log(`${this.user} selects partnership with a professional`);
             
         }else if (this.user === "anotherUser proposal"){
-            console.log(`${this.user} selects partnership with a professional`)
+
+            console.log(`${this.user} selects partnership with a professional`);
 	        
         }else {
-            console.log(`${this.user} denied to have partnership!`)
+            
+            console.log(`${this.user} denied to have partnership!`);
         }
     
     } 
@@ -282,11 +336,14 @@ class Fashion_Design extends Main_Features implements Designer {
     
     Collaboration() : any {
 
-        console.log(`${this.user} has a free will to collab with a professional to strengthen ${this.quality} of ${this.product}`)
+        //console.log(`${this.user} has a free will to collab with a professional to strengthen ${this.quality} of ${this.product}`)
 
-        if (this.user === "professional"){
-	        console.log(`${this.user} is eligible to collab with a professional to strengthen ${this.quality} of ${this.product}`)
+        if (this.user === "inquire") {
+
+	        console.log(`${this.user} is eligible to collab with a professional to strengthen ${this.quality} of ${this.product}`);
+
         } else {
+
             console.log(`Collaboration rejected!`)
         }
 
@@ -296,10 +353,15 @@ class Fashion_Design extends Main_Features implements Designer {
     Ecommerce_space() : any {
         
         if (this.user === "agree"){
+
             console.log(`Display desired items and ${this.cost} items : 
-            choice to buy/sell with a specific number ${this.quantity} of quantities`)
+
+            choice to buy/sell with a specific number ${this.quantity} of quantities`);
+
         } else {
-            console.log(`Display denied; no participants as ${this.seller} and ${this.retailers} of this brand!`)
+
+            console.log(`Display denied; no participants as ${this.seller} and ${this.retailers} of this brand!`);
+
         }
 
     }  
@@ -452,7 +514,7 @@ class Structural_Design extends Main_Features implements Designer {
         
             if (arrayOfObjects[i] == this.building){
 
-                console.log("Site analysis, Building program, Building envelope, Structural system, Mechanical systems, Interior design")
+                console.log("Site analysis, Building Program, Building Envelope, Structural system, Mechanical systems, Interior design")
 
             }else if (arrayOfObjects[i] == this.bridges){
 
@@ -468,15 +530,16 @@ class Structural_Design extends Main_Features implements Designer {
 
             }else if (arrayOfObjects[i] == this.furniture) {
                 
-                console.log("type, template, shape, form, curvature, Materials, Scale and proportion, Color and texture")
+                console.log("Type, Template, Shape, Form, Curvature, Materials, Scale and Proportion, Color and texture")
 
             } else if (arrayOfObjects[i] == this.vehicles) {
 
-                console.log('type, exterior design, interior design, powertrain, drivetrain, Suspension and braking, Safety features')
+                console.log('Type, Exterior Design, Interior Design, Powertrain, Drivetrain, Suspension and Braking, Safety Features')
                 
             } 
 
     }  
+
 }
     
 
@@ -499,21 +562,26 @@ class Structural_Design extends Main_Features implements Designer {
 
     Industry_Partners() : any {
 
-        console.log(`These are the list of industries for this ${this.brandName} `)
+        //console.log(`These are the list of industries for this ${this.brandName} `)
         let fashionIndustries = ["List of partners", "List of partners", "List of partners"]
 	    
         for(let i=0 ; i < fashionIndustries.length; i++) {
+
             console.log(fashionIndustries[i])
+
         }
     }
 
+
     Unique_Features() : any  {
 
-        console.log(`This ${this.brandName} has list of unique features and its own ${this.function_} `)
-        let uniquefeatures = ["List of feature", "List of feature", "List of feature"]
+       // console.log(`This ${this.brandName} has list of unique features and its own ${this.function_} `)
+        let uniquefeatures = ['3D view', 'AutoCAd extensive extension'];
 
         for(let i=0 ; i < uniquefeatures.length; i++) {
+
             console.log(uniquefeatures[i])
+
         }
     }  
 
@@ -521,63 +589,92 @@ class Structural_Design extends Main_Features implements Designer {
 
     External_extensions() : any {
 
-        console.log(`These are the list of external extensions eligible for ${this.brandName}`)
-        let fashiondesignExtensions = ["list of extensions eligible on the said class"]
+        //console.log(`These are the list of external extensions eligible for ${this.brandName}`)
+        let fashiondesignExtensions = ['AutoCad', 'Revit', 'SketchUp', 'Etabs'];
         
         for(let i=0 ; i < fashiondesignExtensions.length; i++) {
+
             console.log(fashiondesignExtensions[i])
+
         }
+
     }
 
 
     Business_partners() : any {
         
 	    if (this.user === "business proposal"){
-            console.log(`${this.user} selects partnership in business`)
+
+            console.log(`${this.user} selects partnership in business`);
            
         } else if (this.user === "professional proposal" ){
-            console.log(`${this.user} selects partnership with a professional`)
+
+            console.log(`${this.user} selects partnership with a professional`);
             
         }else if (this.user === "anotherUser proposal"){
-            console.log(`${this.user} selects partnership with a professional`)
+
+            console.log(`${this.user} selects partnership with a professional`);
 	        
         }else {
-            console.log(`${this.user} denied to have partnership!`)
+
+            console.log(`${this.user} denied to have partnership!`);
         }
     
     } 
     Collaboration() : any {
 
-        console.log(`${this.user} has a free will to collab with a professional to strengthen ${this.quality} of ${this.product}`)
+        //console.log(`${this.user} has a free will to collab with a professional to strengthen ${this.quality} of ${this.product}`)
 
         if (this.user === "professional"){
-	        console.log(`${this.user} is eligible to collab with a professional to strengthen ${this.quality} of ${this.product}`)
+
+	        console.log(`${this.user} is eligible to collab with a professional to strengthen ${this.quality} of ${this.product}`);
+
         } else {
-            console.log(`Collaboration rejected!`)
+
+            console.log('Collaboration has rejected')
         }
     }    
+
+
     Ecommerce_space() : any{
         
         if (this.user === "agree"){
+
             console.log(`Display desired items and ${this.cost} items : 
             choice to buy/sell with a specific number ${this.quantity} of quantities`)
+
         } else {
+
             console.log(`Display denied; no participants as ${this.seller} and ${this.retailers} of this brand!`)
+
         }
     }  
 
     Social_media() : any {
 
         if (this.user === "agree"){
+
             console.log(`${this.user} selects social media in marketing the designs`)
+
         } else {
+
             console.log(`${this.user} in ${this.brandName}: Declined Project Design Marketing!`)
+
         }
-    }     
+    }  
+    
+    
     legal_matters() : any {
-        console.log(`${this.user} verified partnerships`)
+
+        console.log(`${this.user} verified partnerships`);
+
     }
+
+
 }
+
+
+
 
 
 //TEST CASES
@@ -674,6 +771,8 @@ structure.Social_media();
 
 console.log("\n----------------------------------------------------------")
 structure.legal_matters();
+
+//
 
 
 
