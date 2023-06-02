@@ -1,7 +1,7 @@
 
 //Rhea Rizz M. Perocho
 //Lois Kirsten Alonsagay
-
+ 
 
 
 // This project serves as a concept sketch of our app Designer or deSigner,
@@ -13,17 +13,18 @@
 interface Designer {
 
     Designing_Tools() : string       //displays the list of tools designated for that particular feature
-    Export_Property() : string       //Tangible or Intangible 
+    Export_Property() : string       // depends on the user 
     Industry_Partners() : string    //list of industries
     Unique_Features() : string      //unique feature of the particular child class. implement encapsulation
     External_extensions() : string  //eligible external extensions (github, visual studio code, autocad, canva)
     Business_partners() : string    //sellers or business interaction with the employers aka users.
-    Collaboration() : string        //is collaboration between the professionals, employers and users to a working project.
-    Ecommerce_space() : string      //buy and sell space.
+    Collaboration() : string        //collaboration between the professionals, employers and users to a working project.
+    Ecommerce_space() : string      //buying and selling space.
     Social_media() : string         //option to post or display it in the users guild. 
     legal_matters() : string        //if the seller and the professionals have successfully signed in their identity as a pro they are now permitted to be in the one: boolean
                                     //if the users have taken the designated parameters to succesfully export her product. this will take legal action on teh said guild.
 }
+
 
 class Main_Features implements Designer {
 
@@ -37,11 +38,12 @@ class Main_Features implements Designer {
     quantity: number;
     product: string;
     quality: string
+    collaborator: string;
 
     constructor
         (brandName: string, feature: string, user: string, seller: string, 
         retailers: string, function_: string, cost: number, quantity: number, product: string, 
-        quality: string) {
+        quality: string, collaborator: string) {
 
 
         this.brandName = brandName;
@@ -54,6 +56,7 @@ class Main_Features implements Designer {
         this.cost = cost;
         this.product = product;
         this.quality = quality
+        this.collaborator = collaborator;
 
 
     }
@@ -61,28 +64,28 @@ class Main_Features implements Designer {
 
     Designing_Tools()  {
 
-        return (`This ${this.brandName} has variety of tools designated for a specific item  `);
+        return (`${this.brandName} has variety of tools designated for a specific item  `);
 
     }  
 
 
     Export_Property() {
 
-        return (`${this.user} selects to export ${this.product} `);
+        return (`${this.user} selects to export this product`);
 
     }  
     
     
     Industry_Partners()  {
 
-        return (`These are the list of industries for this ${this.brandName} `);
+        return (`These are the list of industries for ${this.brandName} `);
 
     }
 
 
     Unique_Features()   {
 
-        return (`This ${this.brandName} has list of unique features and its own ${this.function_} `);
+        return (`${this.brandName} has list of unique features on its own`);
 
     }  
 
@@ -96,14 +99,14 @@ class Main_Features implements Designer {
 
     Business_partners() {
 
-        return (`${this.user} selects own partnership`);
+        return (`${this.user} selects his/her own partnership with ${this.retailers}`);
 
     } 
 
 
     Collaboration()  {
 
-        return (`${this.user} has a free will to collab with a professional to strengthen ${this.quality} of ${this.product}`);
+        return (`${this.user} wants to do a collab with ${this.collaborator}`);
 
     }    
 
@@ -119,14 +122,24 @@ class Main_Features implements Designer {
 
     Social_media()   {
 
-        return(`${this.user} selects way to market ${this.product} `);
+        return(`${this.user} markets ${this.product} `);
 
     }     
 
 
     legal_matters() {
 
-        return (`${this.user} verified partnerships`);
+        if (this.user === 'verification') {
+
+            return (`${this.user} verified partnerships`);
+
+        } else {
+
+             return (`${this.user} didn't passed the required evaluation`);
+
+        }
+
+        
 
     }
 
@@ -138,26 +151,28 @@ class Main_Features implements Designer {
 
 
 
-class Fashion_Design extends Main_Features implements Designer { 
+class Fashion_Design extends Main_Features  { 
 
     private clothing: string;
     private bags: string;
     private accessories: string;
     private shoes: string;
+    private anotherUser: string;
 
 
     constructor(brandName: string, feature: string, user: string, seller: string, 
         retailers: string, function_: string, cost: number, quantity: number, product: string, 
-        quality: string, clothing: string, bags: string, accessories: string, shoes: string) {
+        quality: string, collaborator: string, clothing: string, bags: string, accessories: string, shoes: string, anotherUser : string) {
 
 
     super(brandName, feature, user, seller, retailers, function_, 
-          cost, quantity, product, quality)
+          cost, quantity, product, quality, collaborator)
 
           this.clothing = clothing
           this.bags = bags
           this.accessories = accessories
           this.shoes = shoes
+          this.anotherUser = anotherUser
 
     }
 
@@ -222,30 +237,39 @@ class Fashion_Design extends Main_Features implements Designer {
 
     Designing_Tools() : any {
 
-        //console.log(`These ${this.brandName} has variety of tools designated for a specific item  `)
 
         let arrayOfObjects = [this.shoes, this.bags, this.accessories, this.clothing]
         
         for(let i = 0 ; i < arrayOfObjects.length; i++) {
+
             console.log(arrayOfObjects[i])
         
             if (arrayOfObjects[i] == this.shoes){
+
+                console.log('Shoes Designing Tools: ');
 
                 console.log("Foot shape, Size, Materials, Sole, Upper design, Color and Texture, Branding and Logo Design");
 
             }else if (arrayOfObjects[i] == this.bags){
 
+                console.log('Bag Designing Tools: ');
+
                 console.log("Functionality, Size and shape, Materials and construction, Compartments and pockets, Strap and handle design, Color and texture, Branding and logo design ");
 
             }else if (arrayOfObjects[i] == this.accessories){
+
+                console.log('Accessories Designing Tools: ')
 
                 console.log("Functionality, Size and shape, Materials and construction, Closure and fastening, Color and texture");
 
             }else if (arrayOfObjects[i] == this.clothing)
 
+                console.log('Clothing Designing Tools: ')
+
                 console.log("Silhouette, Fabrics, Colors and prints, Embellishments, Details, Fit");
                 
         }
+        
     }  
 
 
@@ -268,7 +292,8 @@ class Fashion_Design extends Main_Features implements Designer {
 
     Industry_Partners() : any  {
 
-        //console.log(`These are the list of industries for this ${this.brandName} `)
+        console.log(`These are the list of industries for ${this.brandName} `)
+
         let fashionIndustries = ['Hashikon', 'Zalora', 'Prada', 'Shein', 'Lovelace'];
 	    
         for(let i = 0 ; i < fashionIndustries.length; i++) {
@@ -282,11 +307,11 @@ class Fashion_Design extends Main_Features implements Designer {
 
     Unique_Features() : any  {
 
-        //console.log(`This ${this.brandName} has list of unique features and its own ${this.function_} `)
+        console.log(`Unique features for ${this.brandName}: `)
 
-        let uniquefeatures = ['', '', '', '', '']
+        let uniquefeatures = ['3D Virtual Fitting Room', 'Fabric Visualization', 'Trend Forecasting', 'Style Recommendations',]
 
-        for(let i=0 ; i < uniquefeatures.length; i++) {
+        for(let i = 0 ; i < uniquefeatures.length; i++) {
 
             console.log(uniquefeatures[i]);
 
@@ -297,38 +322,38 @@ class Fashion_Design extends Main_Features implements Designer {
 
     External_extensions() : any {
 
-        //console.log(`These are the list of external extensions eligible for ${this.brandName}`)
+        console.log(`These are the list of external extensions eligible for ${this.brandName}: `)
 
-        let fashiondesignExtensions = ['Clo3D', 'PatternSmith', 'Telestia Creator', 'Canva', 'AutoDesk'];
+        let fashiondesignExtensions = ['Clo3D', 'PatternSmith', 'Telestia Creator', 'Canva'];
         
         for(let i = 0 ; i < fashiondesignExtensions.length; i++) {
 
-            console.log(fashiondesignExtensions[i])
+            console.log(fashiondesignExtensions[i]);
 
         }
 
     }
 
 
-    Business_partners() : any {
+    Business_partners(anotherUser : any | Fashion_Design) : void {
 
-        let agree: boolean = true;
         
-	    if (this.user === 'agree') {
+	    if (this.user === 'agree' && anotherUser.user === 'agree') {
 
-            console.log(`${this.user} selects partnership in business`);
+            console.log (`${this.user} selects partnership with ${this.retailers}`);
            
-        } else if (this.user === "professional proposal" ){
+        } else if (this.user === 'agree' && this.collaborator === 'agree' ){
             
-            console.log(`${this.user} selects partnership with a professional`);
+            console.log (`${this.user} selects partnership with a ${this.collaborator}`);
             
-        }else if (this.user === "anotherUser proposal"){
+        }else if (this.user === 'agree' && this.retailers === 'agree'){
 
-            console.log(`${this.user} selects partnership with a professional`);
+            console.log (`${this.user} selects partnership with a ${this.retailers}`);
 	        
         }else {
             
-            console.log(`${this.user} denied to have partnership!`);
+            console.log (`${this.user} denied to have partnership`);
+
         }
     
     } 
@@ -336,11 +361,9 @@ class Fashion_Design extends Main_Features implements Designer {
     
     Collaboration() : any {
 
-        //console.log(`${this.user} has a free will to collab with a professional to strengthen ${this.quality} of ${this.product}`)
+        if (this.user === 'inquire') {
 
-        if (this.user === "inquire") {
-
-	        console.log(`${this.user} is eligible to collab with a professional to strengthen ${this.quality} of ${this.product}`);
+	        console.log(`${this.user} is eligible to collab with ${this.collaborator}`);
 
         } else {
 
@@ -351,16 +374,36 @@ class Fashion_Design extends Main_Features implements Designer {
 
 
     Ecommerce_space() : any {
+
+        let ecommerceFeatures : string[] = ['User Management', 
+                                            'Product Catalog', 
+                                            'Ordering and Payment', 
+                                            'Inventory Management', 
+                                            'Search and Filtering', 
+                                            'Discounts and Coupons', 
+                                            'Shipping and Tracking', 
+                                            'Reviews and Ratings', 
+                                            'Order History', 
+                                            'Customer Support'];
+
+        for (let features of ecommerceFeatures) {
+        
+        console.log('E-commerce Features: ')
+
+        console.log(features)
+
+        }
         
         if (this.user === "agree"){
 
-            console.log(`Display desired items and ${this.cost} items : 
+            console.log(`These items cost: ${this.cost}`) 
 
-            choice to buy/sell with a specific number ${this.quantity} of quantities`);
+            console.log(`Quantity: ${this.quantity}`)
+            
 
         } else {
 
-            console.log(`Display denied; no participants as ${this.seller} and ${this.retailers} of this brand!`);
+            console.log('Display denied');
 
         }
 
@@ -368,19 +411,39 @@ class Fashion_Design extends Main_Features implements Designer {
 
 
     Social_media() : any  {
+        
 
-        if (this.user === "agree"){
-            console.log(`${this.user} selects social media in marketing the designs`)
-        } else {
-            console.log(`${this.user} in ${this.brandName}: Declined Project Design Marketing!`)
+    console.log('Social Media Features: ')
+
+    let socialMediaFeatures : string[] = [  'User Management', 
+                                            'Connections', 
+                                            'Post and Content', 
+                                            'Newsfeed', 
+                                            'Privacy and Security', 
+                                            'Reactions', 
+                                            'Notifications', 
+                                            'Search Engine', 
+                                            'Reporting and Moderation', 
+                                            'Analytics and Insights'];
+
+        for (let features of socialMediaFeatures) {
+
+        console.log(features)
+
         }
+
     }     
 
 
     legal_matters() : any{
 
-        console.log(`${this.user} verified partnerships`);
+        if (this.user === 'verification') {
 
+            return (`${this.user} verified partnerships`);
+
+        } else {
+             return (`${this.user} didn't passed the required evaluation`)
+        }
     }
 
 
@@ -393,7 +456,7 @@ class Fashion_Design extends Main_Features implements Designer {
 
 
 
-class Structural_Design extends Main_Features implements Designer {
+class Structural_Design extends Main_Features  {
 
 
     private building : string;
@@ -402,15 +465,16 @@ class Structural_Design extends Main_Features implements Designer {
     private house: string;
     private furniture: string;
     private vehicles : string;
+    private anotherUser : string
 
 
     constructor(brandName: string, feature: string, user: string, seller: string, 
         retailers: string, function_: string, cost: number, quantity: number, product: string, 
-        quality: string, building: string, bridges : string, stadium : string, house : string, furniture : string, vehicles : string) {
+        quality: string, collaborator: string, building: string, bridges : string, stadium : string, house : string, furniture : string, vehicles : string, anotherUser : string) {
 
 
     super(brandName, feature, user, seller, retailers, function_, 
-          cost, quantity, product, quality)
+          cost, quantity, product, quality, collaborator)
 
           this.building = building;
           this.bridges = bridges;
@@ -418,6 +482,7 @@ class Structural_Design extends Main_Features implements Designer {
           this.house = house;
           this.furniture = furniture;
           this.vehicles = vehicles;
+          this.anotherUser = anotherUser
 
     }
 
@@ -514,25 +579,37 @@ class Structural_Design extends Main_Features implements Designer {
         
             if (arrayOfObjects[i] == this.building){
 
+                console.log('Building Designing Tools: ')
+
                 console.log("Site analysis, Building Program, Building Envelope, Structural system, Mechanical systems, Interior design")
 
             }else if (arrayOfObjects[i] == this.bridges){
+
+                console.log('Bridge Designing Tools: ')
 
                 console.log("Structural system, Bridge deck, Substructure, Superstructure, Connections, Bridge railing, Bridge lighting, Design Structures")
 
             }else if (arrayOfObjects[i] == this.stadium){
 
+                console.log('Stadium designing Tools: ')
+
                 console.log("Site analysis, Building program, Spectator experience, Playing field, Structural system, Mechanical systems, Security and safety ")
 
             }else if (arrayOfObjects[i] == this.house){
 
+                console.log('House Designing Tools: ')
+
                 console.log("Site analysis, Building program, Building envelope, Structural system, Mechanical systems, Interior design")
 
             }else if (arrayOfObjects[i] == this.furniture) {
+
+                console.log('Furniture Designing Tools: ')
                 
                 console.log("Type, Template, Shape, Form, Curvature, Materials, Scale and Proportion, Color and texture")
 
             } else if (arrayOfObjects[i] == this.vehicles) {
+
+                console.log('Vehicles Designing Tools: ')
 
                 console.log('Type, Exterior Design, Interior Design, Powertrain, Drivetrain, Suspension and Braking, Safety Features')
                 
@@ -543,13 +620,12 @@ class Structural_Design extends Main_Features implements Designer {
 }
     
 
-
     Export_Property(): any {
 
                 
         if (this.user === 'agree') {
 
-            console.log (`${this.user} selects to export ${this.product} `)
+            console.log (`${this.user} selects to export ${this.product}`)
 
         } else {
             
@@ -562,12 +638,13 @@ class Structural_Design extends Main_Features implements Designer {
 
     Industry_Partners() : any {
 
-        //console.log(`These are the list of industries for this ${this.brandName} `)
-        let fashionIndustries = ["List of partners", "List of partners", "List of partners"]
-	    
-        for(let i=0 ; i < fashionIndustries.length; i++) {
+        console.log(`These are the list of industries for ${this.brandName}: `)
 
-            console.log(fashionIndustries[i])
+        let structuralIndustries = ["Construction company", "Real estate Developer", "Engineering Contractor"]
+	    
+        for(let i=0 ; i < structuralIndustries.length; i++) {
+
+            console.log(structuralIndustries[i])
 
         }
     }
@@ -575,8 +652,9 @@ class Structural_Design extends Main_Features implements Designer {
 
     Unique_Features() : any  {
 
-       // console.log(`This ${this.brandName} has list of unique features and its own ${this.function_} `)
-        let uniquefeatures = ['3D view', 'AutoCAd extensive extension'];
+       console.log(`This ${this.brandName} list of unique features: `)
+
+        let uniquefeatures = ['3D view', 'AutoCAd extension', 'Structural analysis'];
 
         for(let i=0 ; i < uniquefeatures.length; i++) {
 
@@ -589,7 +667,8 @@ class Structural_Design extends Main_Features implements Designer {
 
     External_extensions() : any {
 
-        //console.log(`These are the list of external extensions eligible for ${this.brandName}`)
+        console.log(`These are the list of external extensions eligible for ${this.brandName}: `);
+
         let fashiondesignExtensions = ['AutoCad', 'Revit', 'SketchUp', 'Etabs'];
         
         for(let i=0 ; i < fashiondesignExtensions.length; i++) {
@@ -601,75 +680,117 @@ class Structural_Design extends Main_Features implements Designer {
     }
 
 
-    Business_partners() : any {
+    Business_partners(anotherUser : any | Structural_Design) : string {
         
-	    if (this.user === "business proposal"){
+	    if (this.user === 'agree' && anotherUser.user === 'agree'){
 
-            console.log(`${this.user} selects partnership in business`);
+            return (`${this.user} selects partnership with ${anotherUser}`);
            
-        } else if (this.user === "professional proposal" ){
+        } else if (this.user === 'agree' && this.collaborator == 'agree' ){
 
-            console.log(`${this.user} selects partnership with a professional`);
+            return (`${this.user} selects partnership with ${this.collaborator}`);
             
-        }else if (this.user === "anotherUser proposal"){
+        }else if (this.user === 'agree' && this.retailers === 'agree'){
 
-            console.log(`${this.user} selects partnership with a professional`);
+            return (`${this.user} selects partnership with ${this.retailers}`);
 	        
         }else {
 
-            console.log(`${this.user} denied to have partnership!`);
+            return (`${this.user} has denied a partnership!`);
         }
     
     } 
+
     Collaboration() : any {
 
-        //console.log(`${this.user} has a free will to collab with a professional to strengthen ${this.quality} of ${this.product}`)
 
-        if (this.user === "professional"){
+        if (this.user === 'agree' && this.collaborator === 'agree'){
 
-	        console.log(`${this.user} is eligible to collab with a professional to strengthen ${this.quality} of ${this.product}`);
+	        console.log(`${this.user} is eligible to collab with ${this.collaborator}`);
 
         } else {
 
-            console.log('Collaboration has rejected')
+            console.log('Collaboration rejected')
         }
     }    
 
 
     Ecommerce_space() : any{
+
+        console.log('E-commerce Features: ')
+
+        let ecommerceFeatures : string[] = [ 'User Management', 
+                                            'Product Catalog', 
+                                            'Ordering and Payment', 
+                                            'Inventory Management', 
+                                            'Search and Filtering', 
+                                            'Discounts and Coupons', 
+                                            'Shipping and Tracking', 
+                                            'Reviews and Ratings', 
+                                            'Order History', 
+                                            'Customer Support'];
+
+        for (let features of ecommerceFeatures) {
+        
+
+        console.log(features)
+
+        }
         
         if (this.user === "agree"){
 
-            console.log(`Display desired items and ${this.cost} items : 
-            choice to buy/sell with a specific number ${this.quantity} of quantities`)
+            console.log(`These item/s cost : ${this.cost}`)
+
+            console.log(`Quantity: ${this.quantity}`)
 
         } else {
 
-            console.log(`Display denied; no participants as ${this.seller} and ${this.retailers} of this brand!`)
+            console.log(`Display denied`)
 
         }
     }  
 
     Social_media() : any {
 
-        if (this.user === "agree"){
+        console.log('Social Media features: ');
 
-            console.log(`${this.user} selects social media in marketing the designs`)
+        let socialMediaFeatures : string[] = ['User Management', 
+                                              'Connections', 
+                                              'Post and Content', 
+                                              ' Newsfeed', 
+                                              'Privacy and Security', 
+                                              'Reactions', 
+                                              'Notifications', 
+                                              'Search Engine', 
+                                              'Reporting and Moderation', 
+                                              'Analytics and Insights']
+        
+        for (let features of socialMediaFeatures) {
 
-        } else {
-
-            console.log(`${this.user} in ${this.brandName}: Declined Project Design Marketing!`)
+            console.log(features)
 
         }
+
+
     }  
     
     
     legal_matters() : any {
 
-        console.log(`${this.user} verified partnerships`);
+        if (this.user === 'verification') {
+
+            console.log(`${this.user} has been verified`);
+
+        } else if (this.retailers === 'verification') {
+            
+            console.log(`${this.retailers} has been verified`)
+        } else {
+
+            console.log('Verification has failed')
+
+        }        
 
     }
-
 
 }
 
@@ -680,22 +801,15 @@ class Structural_Design extends Main_Features implements Designer {
 //TEST CASES
 
 const fashion = new Fashion_Design
-('Fashion Industry', 
+('Fashion Design', 
 'Unique Features', 
-'User 1', 
-'Seller 1', 
-'Retailer 1', 
-'Fasion Designing', 
-200, 50, 
-'Products: Clothing, Bags, Accessories, Shoes',
- 'Unique Qualities', 
- 'Shirt', 'Bag', 'Watch', 'Heels');
- 'agree'
- 'business proposal'
- 'professional'
-
-console.log("\n----------------------------------------------------------")
-fashion.Designing_Tools();
+'Lois Alonsagay', 
+'Sheree Laluma', 
+'Shoppe', 
+'Fashion Designing', 
+200, 1, 
+'Clothing, Bags, Accessories, Shoes',
+ 'Unique Qualities', 'Chito Poral', 'dress', 'backpack', 'necklace', 'doll shoes', 'Manaff Kassim') 
 
 console.log("\n----------------------------------------------------------")
 fashion.Export_Property()
@@ -710,7 +824,7 @@ console.log("\n----------------------------------------------------------")
 fashion.External_extensions();
 
 console.log("\n----------------------------------------------------------")
-fashion.Business_partners();
+fashion.Business_partners('Manaff Kassim');
 
 console.log("\n----------------------------------------------------------")
 fashion.Collaboration();
@@ -724,6 +838,9 @@ fashion.Social_media();
 console.log("\n----------------------------------------------------------")
 fashion.legal_matters();
 
+console.log('\n----------------------------------------------------------')
+fashion.Designing_Tools();
+
 
 
 
@@ -736,9 +853,7 @@ const structure = new Structural_Design
 'Structure Designs', 
 12345, 1, 
 'Products: vehicles, etc',
-'Unique Qualities',
-'seat', 'custom', 'Gavana bldg', 'Seravim', 'agree' , 
-'professional', 
+'Unique Qualities','Chito Poral', 'skyscraper', 'suspension bridge', 'open stadium', 'bungalow', 'sofa', 'tricycle', 'Manaff kassim' 
 )
 
 
@@ -758,7 +873,7 @@ console.log("\n----------------------------------------------------------")
 structure.External_extensions();
 
 console.log("\n----------------------------------------------------------")
-structure.Business_partners();
+structure.Business_partners('Manaff Kassim');
 
 console.log("\n----------------------------------------------------------")
 structure.Collaboration();
@@ -771,9 +886,6 @@ structure.Social_media();
 
 console.log("\n----------------------------------------------------------")
 structure.legal_matters();
-
-//
-
 
 
 
